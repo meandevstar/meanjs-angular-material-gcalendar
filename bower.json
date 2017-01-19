@@ -1,0 +1,15 @@
+{
+  "name": "angular",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "latest",
+    "angular": "latest",
+    "angular-route": "latest",
+    "angular-material-data-table": "^0.10.10",
+    "rrule": "^2.1.0",
+    "mdPickers": "^0.7.5"
+  },
+  "resolutions": {
+    "angular": "1.6.1"
+  }
+}

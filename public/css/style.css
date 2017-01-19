@@ -1,0 +1,53 @@
+body { 
+    padding-top:30px; 
+}
+.padding-left {
+    padding-left: 36px
+}
+.cycle {
+    margin: 0;
+    display: inline-block;
+}
+.margin-top10 {
+     margin-top: 10px;
+     font-size: 100%;
+}
+.margin-top5 {
+     margin-top: 5px;
+     margin-right: 10px;
+}
+.no-margin {
+    margin: 0;
+}
+.item-margin {
+    margin-right: 10px;
+}
+.input-width {
+    width: 50px;
+}
+.md-errors-spacer {
+    display: none;
+}
+.md-icon-button.md-button.md-ink-ripple {
+    display: none;
+}
+.md-datepicker-input {
+    font-size: 1em;
+}
+.md-icon-float {
+    margin: 0px;
+}
+.md-datepicker-button {
+  display: none;
+}
+.md-label {
+    margin-top: 3px;
+}
+/*.button {
+    font-size: 1.8em;
+}*/
+.btn-container {
+    width: 100%;
+    height: 100%;
+    /*line-height: 75px;*/
+}

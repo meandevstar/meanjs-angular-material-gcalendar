@@ -1,0 +1,16 @@
+<md-dialog layout="column" layout-padding>
+    <md-dialog-content>
+        <h3>Delete options</h3>
+        <md-radio-group ng-model="deleteType">
+
+            <md-radio-button ng-repeat="type in deleteTypes" ng-value="type.value" class="md-primary">
+            {{type.name}}  
+            </md-radio-button><br>
+
+        </md-radio-group>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="deleteItem()" class="md-primary md-raised">Delete</md-button>
+        <md-button class="md-primary" ng-click="closeDialog()">Close</md-button>
+    </md-dialog-actions>
+</md-dialog>

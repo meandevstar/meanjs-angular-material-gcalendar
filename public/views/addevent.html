@@ -1,0 +1,110 @@
+<div ng-controller="MainController" layout="column" layout-align="center center" ng-cloak class="md-inline-form">
+<form name="addEventForm">
+  <div layout="column" style="width: 850px">
+    <div layout="row">
+      <div flex="30" layout-align="end start" layout="row">
+        <label class="margin-top10">Event Name</label>
+      </div>
+      <div flex>
+        <md-input-container class="md-icon-float md-icon-right no-margin">
+          <input ng-model="event.name" type="text" required>
+        </md-input-container>
+      </div>
+    </div>
+    <div layout="row">
+      <div flex="30" layout-align="end start" layout="row">
+        <label class="margin-top10">Description</label>
+      </div>
+      <div flex>
+        <md-input-container class="md-icon-float md-icon-right no-margin">
+          <input ng-model="event.description" type="text" required>
+          <div ng-messages="addEventForm.event.description.$error">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+      </div>
+    </div>
+    <div layout="row">
+      <div flex="30" layout-align="end start" layout="row">
+        <label class="margin-top10">Repeat</label>
+      </div>
+      <div flex="none">
+        <md-input-container class="md-block no-margin padding-left">
+          <md-select ng-model="event.type" ng-change="onTypeChange()">
+            <md-option ng-repeat="type in types" value="{{type.value}}">
+              {{type.name}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+    </div>
+    <div layout="row">
+      <div flex="30" layout-align="end start" layout="row">
+        <label class="margin-top10">Repeat every</label>
+      </div>
+      <div flex="none" class="cycle padding-left">
+        <md-input-container class="no-margin">
+          <md-select ng-model="event.cycle">
+            <md-option ng-repeat="cycle in cycles" value="{{cycle}}">
+              {{cycle}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+        <span>{{typeUnit}}</span>
+      </div>
+    </div>
+    <div layout="row">
+      <div flex="30" layout-align="end start" layout="row">
+        <label class="margin-top10">Start</label>
+      </div>
+      <div flex="none" class="padding-left margin-top10">
+        <md-datepicker ng-model="event.startdate"></md-datepicker>
+      </div>
+      <div flex="none" class="margin-top5">
+        <mdp-time-picker ng-model="event.starttime"></mdp-time-picker>
+      </div>
+    </div>
+    <div layout="row" class="margin-top10">
+      <div flex="30" layout-align="end start" layout="row">
+        <label class="margin-top10">Ends</label>
+      </div>
+      <div flex="70" class="padding-left">
+        <md-radio-group ng-model="event.end">
+
+          <md-radio-button value="0" class="md-primary">After</md-radio-button>
+          <!--<span>After</span>-->
+          <md-input-container class="no-margin input-width">
+            <input ng-model="event.count" type="number" step="1" class="input-width" ng-disabled="event.end != 0">
+          </md-input-container> 
+          <span>Ocurrences</span>
+          <div style="display:flex;">
+            <span ><md-radio-button value="1" class="md-primary">On</md-radio-button></span>
+            <span class="margin-top5"><md-datepicker ng-model="event.enddate" md-hide-icons="calendar" class="margin-top10" ng-disabled="event.end != 1"></md-datepicker></span>
+            <span><mdp-time-picker ng-model="event.endtime" mdp-disabled="event.end != 1"></mdp-time-picker></span>
+          </div>
+          <md-radio-button value="2" class="md-primary" class="margin-top10">Never</md-radio-button>
+
+        </md-radio-group>
+        <div layout="row" layout-margin layout-align="center" ng-if="event.type == 2">
+          <fieldset class="standard" >
+            <legend>Reccuring Days</legend>
+            <div layout="row" layout-wrap flex>
+              <div ng-repeat="day in days" class="item-margin">
+                <md-checkbox ng-checked="exists(day.value, event.selectedDays)" ng-click="toggleDay(day.value, event.selectedDays)">
+                  {{ day.name }}
+                </md-checkbox>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+      <div layout="row" layout-align="center center">
+        <md-button class="md-raised" layout-margin ng-click="cancel()">Cancel</md-button>
+        <md-button class="md-raised md-primary" layout-margin ng-click="saveEvent()">
+          save
+        </md-button>
+      </div>
+      </div>
+    </div>
+  </div>
+</form>
