@@ -1,5 +1,12 @@
 # Google Calendar App
 
+<img width="800" src="delete.jpg" border="0" />
+
+
+<img width="800" src="new.jpg" border="0" />
+
+
+
 ## Installation & Run
 ```
 npm install
