@@ -14,7 +14,7 @@ bower install
 npm start
 ```
 
-View your browser at http://localhost:8080
+You can View [Demo here](https://vast-bastion-84161.herokuapp.com)
 
 ## Configuration
 
